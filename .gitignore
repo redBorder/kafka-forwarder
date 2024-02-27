@@ -1,0 +1,8 @@
+target/
+.idea/
+*.iml
+*.jar
+pom.xml.releaseBackup
+release.properties
+pkgs
+SOURCES
