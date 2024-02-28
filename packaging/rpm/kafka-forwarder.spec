@@ -1,3 +1,5 @@
+%global debug_package %{nil}
+
 Name:     kafka-forwarder
 Version:  %{__version}
 Release:  %{__release}%{?dist}
@@ -26,7 +28,6 @@ install -D -m 644 target/%{name}-*-selfcontained.jar %{buildroot}/usr/share/%{na
 
 %clean
 rm -rf %{buildroot}
-
 
 %files
 %defattr(755,root,root)

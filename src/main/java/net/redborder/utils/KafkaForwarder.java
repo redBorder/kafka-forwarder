@@ -25,7 +25,7 @@ public class KafkaForwarder {
                 // For each message consumed, forward it to the destination topic
                 String key = record.key();
                 String value = record.value();
-                log.info("Forwarding message with key: %s, value: %s%n", key, value);
+                log.info("Forwarding message with key: {}, value: {}", key, value);
                 producer.send(key, value);
             });
         });
