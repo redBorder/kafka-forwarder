@@ -45,6 +45,7 @@ public class KafkaForwarder {
         options.addOption(null, "sourceBroker", true, "broker of the source machine (default: localhost:9092)");
         options.addOption(null, "destinationTopic", true, "topic to produce to (required)");
         options.addOption(null, "destinationBroker", true, "broker of the destination machine (default: localhost:9092)");
+        options.addOption(null, "groupId", true, "groupId of the consumer (default: kafka-forwarder-group)");
         options.addOption(null, "help", false, "show this help");
 
         CommandLineParser parser = new BasicParser();
@@ -67,7 +68,7 @@ public class KafkaForwarder {
         String producerBroker = String.valueOf(cmdLine.getOptionValue("destinationBroker", "localhost:9092"));
         String sourceTopic = String.valueOf(cmdLine.getOptionValue("sourceTopic"));
         String destinationTopic = String.valueOf(cmdLine.getOptionValue("destinationTopic"));
-        String groupId = "kafka-forwarder-group";
+        String groupId = String.valueOf(cmdLine.getOptionValue("groupId", "kafka-forwarder-group"));
 
         KafkaForwarder forwarder = new KafkaForwarder(consumerBroker, producerBroker, sourceTopic, destinationTopic, groupId);
         forwarder.start();
